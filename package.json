@@ -1,0 +1,12 @@
+{
+    "name": "pokemon_showdown",
+	"type": "module",
+	"scripts": {
+		"lint": "pnpm biome format --write src"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.3",
+		"tsx": "^4.16.2",
+		"typescript": "^5.5.3"
+	}
+}
