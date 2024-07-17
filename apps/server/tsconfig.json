@@ -1,10 +1,10 @@
 {
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "lib": ["es2022"],
-    "moduleResolution": "Bundler",
-    "module": "ESNext"
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+	"extends": "../../tsconfig.json",
+	"compilerOptions": {
+		"lib": ["es2022"],
+		"moduleResolution": "Bundler",
+		"module": "ESNext"
+	},
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules", "**/*.client.ts"]
 }
