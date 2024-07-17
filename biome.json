@@ -9,10 +9,13 @@
 			"recommended": true,
 			"suspicious": {
 				"noConsoleLog": "warn"
+			},
+			"correctness": {
+				"noUnusedImports": "error"
 			}
 		}
 	},
 	"files": {
 		"ignore": ["**/*.client.ts"]
-	  }
+	}
 }
