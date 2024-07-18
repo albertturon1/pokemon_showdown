@@ -4,11 +4,15 @@
 	"scripts": {
 		"lint": "pnpm biome format --write ./",
 		"server:bootstrap": "pnpm --filter @pokemon/server bootstrap",
-		"server:typescheck": "pnpm --filter @pokemon/server typescheck"
+		"server:typescheck": "pnpm --filter @pokemon/server typescheck",
+		"server:dev:watch": "pnpm --filter @pokemon/server dev:watch",
+		"client:dev": "pnpm --filter @pokemon/client dev",
+		"dev": "concurrently \"pnpm server:dev:watch\" \"pnpm client:dev\""
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.8.3",
 		"@total-typescript/ts-reset": "^0.5.1",
+		"concurrently": "^8.2.2",
 		"tsx": "^4.16.2",
 		"typescript": "^5.5.3"
 	}
