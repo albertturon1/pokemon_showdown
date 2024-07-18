@@ -5,6 +5,7 @@ import { z } from "zod";
 import { extendZodWithOpenApi } from "@anatine/zod-openapi";
 import { apiContract, apiRouter } from "./api";
 import { setupDocs } from "./setupDocs";
+import { errorHandler } from "./errorHandling";
 
 extendZodWithOpenApi(z);
 const PORT = 3000;
@@ -21,4 +22,19 @@ app.listen(PORT, () => {
 });
 
 setupDocs(app, apiContract, PORT);
-createExpressEndpoints(apiContract, apiRouter, app);
+createExpressEndpoints(apiContract, apiRouter, app, {
+    //https://ts-rest.com/docs/express/#request-validation-error-handling
+    //zod errors are returned as 400 by default and are not available in the middleware - using requestValidationErrorHandler allows to modify how they are handled  
+    requestValidationErrorHandler:
+        process.env.NODE_ENV === 'production' ?
+            //hiding validation error details in production
+            (_err, _req, res) => {
+                return res.status(422).json({
+                    message: 'Validation error'
+                });
+            } : "default",
+});
+
+
+//keeping it as last
+app.use(errorHandler);
