@@ -17,24 +17,24 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.listen(PORT, () => {
-    // biome-ignore lint/suspicious/noConsoleLog: ignore
-    console.log(`Listening at http://localhost:${PORT}`);
+	// biome-ignore lint/suspicious/noConsoleLog: ignore
+	console.log(`Listening at http://localhost:${PORT}`);
 });
 
 setupDocs(app, apiContract, PORT);
 createExpressEndpoints(apiContract, apiRouter, app, {
-    //https://ts-rest.com/docs/express/#request-validation-error-handling
-    //zod errors are returned as 400 by default and are not available in the middleware - using requestValidationErrorHandler allows to modify how they are handled  
-    requestValidationErrorHandler:
-        process.env.NODE_ENV === 'production' ?
-            //hiding validation error details in production
-            (_err, _req, res) => {
-                return res.status(422).json({
-                    message: 'Validation error'
-                });
-            } : "default",
+	//https://ts-rest.com/docs/express/#request-validation-error-handling
+	//zod errors are returned as 400 by default and are not available in the middleware - using requestValidationErrorHandler allows to modify how they are handled
+	requestValidationErrorHandler:
+		process.env.NODE_ENV === "production"
+			? //hiding validation error details in production
+				(_err, _req, res) => {
+					return res.status(422).json({
+						message: "Validation error",
+					});
+				}
+			: "default",
 });
-
 
 //keeping it as last
 app.use(errorHandler);

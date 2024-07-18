@@ -1,13 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Pokemon from '../components/Pokemon.astro';
-import { apiClient } from '@pokemon/server'
+import Layout from "../layouts/Layout.astro";
+import Pokemon from "../components/Pokemon.astro";
+import { apiClient } from "@pokemon/server";
 
 const pokemonComparions = await apiClient.getPokemonsCompare({
 	query: {
-		pokemons: 'pikachu, ditto'
-	}
-})
+		pokemons: "pikachu, ditto",
+	},
+});
 ---
 
 <Layout title="Welcome to Pokemon Showdown">

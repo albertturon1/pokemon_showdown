@@ -1,1 +1,1 @@
-export { pokeapiClient, schemas as pokeapiSchemas } from "./pokeapi.client"
+export { pokeapiClient, schemas as pokeapiSchemas } from "./pokeapi.client";
