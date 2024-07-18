@@ -1,0 +1,25 @@
+---
+type Props = {
+	name?: string;
+	front_default?: string | null;
+	front_default_gif?: string | null;
+};
+
+const pokemeon = Astro.props;
+const { name, front_default, front_default_gif } = pokemeon;
+---
+
+<h1>{name}</h1>
+<div class="flex flex-row bg-red-300">
+    {
+    front_default 
+        ? <img class="object-contain" src={front_default}/> 
+        : null
+    }
+    {
+    front_default_gif 
+        ? <img class="object-contain" src={front_default_gif}/> 
+        : null
+    }
+
+</div>

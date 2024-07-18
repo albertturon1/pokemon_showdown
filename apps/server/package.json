@@ -6,8 +6,8 @@
 	"scripts": {
 		"bootstrap": "pnpm i && pnpm generate-pokeapi",
 		"generate-pokeapi": "scripts/generate_pokeapi.sh",
-		"dev:watch": "NODE_ENV=development tsx watch src/index.ts",
-		"start": "NODE_ENV=production tsx watch src/index.ts",
+		"dev:watch": "NODE_ENV=development tsx watch src/app.ts",
+		"start": "NODE_ENV=production tsx watch src/app.ts",
 		"typescheck": "tsc"
 	},
 	"dependencies": {

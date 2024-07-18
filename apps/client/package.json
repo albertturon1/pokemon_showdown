@@ -1,17 +1,19 @@
 {
-  "name": "@pokemon/client",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^4.11.6",
-    "@astrojs/check": "^0.8.2",
-    "@pokemon/server": "workspace:^"
-  }
+	"name": "@pokemon/client",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro check && astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.8.2",
+		"@astrojs/tailwind": "^5.1.0",
+		"@pokemon/server": "workspace:^",
+		"astro": "^4.11.6",
+		"tailwindcss": "^3.4.6"
+	}
 }

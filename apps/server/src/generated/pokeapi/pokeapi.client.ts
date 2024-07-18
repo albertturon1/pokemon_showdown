@@ -497,11 +497,11 @@ type LocationAreaDetail = {
         min_level: number;
         max_level: number;
         condition_values?:
-        | {
-          name: string;
-          url: string;
-        }
-        | undefined;
+          | {
+              name: string;
+              url: string;
+            }
+          | undefined;
         chance: number;
         method: {
           name: string;
@@ -1308,6 +1308,18 @@ type PokemonDetail = Partial<{
       front_female: string | null;
       front_shiny: string | null;
       front_shiny_female: string | null;
+      other: Partial<{
+        showdown: Partial<{
+          back_default: string | null;
+          back_female: string | null;
+          back_shiny: string | null;
+          back_shiny_female: string | null;
+          front_default: string | null;
+          front_female: string | null;
+          front_shiny: string | null;
+          front_shiny_female: string | null;
+        }>;
+      }>;
     } & {
       [key: string]: any;
     }
@@ -1604,11 +1616,11 @@ type TypeDetail = {
   pokemon: Array<{
     slot?: number | undefined;
     pokemon?:
-    | Partial<{
-      name: string;
-      url: string;
-    }>
-    | undefined;
+      | Partial<{
+          name: string;
+          url: string;
+        }>
+      | undefined;
   }>;
   moves: Array<MoveSummary>;
 };
@@ -3120,6 +3132,26 @@ const PokemonDetail: z.ZodType<PokemonDetail> = z
         front_female: z.string().url().nullable(),
         front_shiny: z.string().url().nullable(),
         front_shiny_female: z.string().url().nullable(),
+        other: z
+          .object({
+            showdown: z
+              .object({
+                back_default: z.string().nullable(),
+                back_female: z.string().nullable(),
+                back_shiny: z.string().nullable(),
+                back_shiny_female: z.string().nullable(),
+                front_default: z.string().nullable(),
+                front_female: z.string().nullable(),
+                front_shiny: z.string().nullable(),
+                front_shiny_female: z.string().nullable(),
+              })
+              .partial()
+              .passthrough()
+              .nullable(),
+          })
+          .partial()
+          .passthrough()
+          .nullable(),
       })
       .partial()
       .passthrough(),
