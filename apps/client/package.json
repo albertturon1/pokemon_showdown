@@ -10,8 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.11.6",
     "@astrojs/check": "^0.8.2",
-    "@pokemon/server": "workspace:^"
+    "@astrojs/tailwind": "^5.1.0",
+    "@pokemon/server": "workspace:^",
+    "astro": "^4.11.6",
+    "tailwindcss": "^3.4.6"
   }
 }

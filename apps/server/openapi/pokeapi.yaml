@@ -7796,6 +7796,38 @@ components:
               format: uri
               example: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png
               nullable: true
+            other:
+              type: object
+              nullable: true
+              properties:
+                showdown:
+                  type: object
+                  nullable: true
+                  properties:
+                    back_default:
+                      type: string
+                      nullable: true
+                    back_female:
+                      type: string
+                      nullable: true
+                    back_shiny:
+                      type: string
+                      nullable: true          
+                    back_shiny_female:
+                      type: string
+                      nullable: true   
+                    front_default:
+                      type: string
+                      nullable: true        
+                    front_female:
+                      type: string
+                      nullable: true              
+                    front_shiny:
+                      type: string
+                      nullable: true                         
+                    front_shiny_female:
+                      type: string
+                      nullable: true                                                              
           additionalProperties: true
           examples:
             - back_default: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png
