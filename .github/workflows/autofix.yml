@@ -7,6 +7,17 @@ permissions:
   contents: read
 
 jobs:
+  build:
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        node-version: [20]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 9
   autofix:
     runs-on: ubuntu-latest
     steps:
@@ -15,7 +26,7 @@ jobs:
         with:
           node-version: 16
 
-      - run: npm ci
-      - run: npx biome format --write ./
+      - run: pnpm i
+      - run: pnpm lint
 
       - uses: autofix-ci/action@dd55f44df8f7cdb7a6bf74c78677eb8acd40cd0a
