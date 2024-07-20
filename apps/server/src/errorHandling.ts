@@ -4,7 +4,7 @@ export function errorHandler(
 	error: Error,
 	req: Request,
 	res: Response,
-	next: NextFunction,
+	_next: NextFunction, //DO NOT REMOVE THIS PARAM - Express no longer recognizes your function as an error-handling middleware because it does not match the expected signature handling
 ) {
 	function fallbackError() {
 		return res
